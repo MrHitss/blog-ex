@@ -22,7 +22,7 @@ const Header = () => {
                     </Link>
 
                     <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li class="nav-item"><Link to="/"  className={`nav-link px-2 ${pathname === "/" ? "active" : ""}`}>Home</Link></li>
+                        <li className="nav-item"><Link to="/"  className={`nav-link px-2 ${pathname === "/" ? "active" : ""}`}>Home</Link></li>
                         <li><Link to="/blogs" className={`nav-link px-2 ${pathname === "/blogs" ? "active" : ""}`} >Blogs</Link></li>
                     </ul>
 

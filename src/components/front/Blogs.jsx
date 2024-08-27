@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { fetchBooks, fetchBlogs } from '../../api/api';
 import BlogSection from "../common/sections/BlogSection";
+import { fetchAllBlogs } from "../../store/slices/blogSlice";
+import { useDispatch, useSelector } from "react-redux";
 const Blogs = () => {
-    const [blogs, setBlogs] = useState([]);
+    const { blogs, loading } = useSelector(state => state.blogs);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        const getBlogs = async () => {
-            try {
-                const response = await fetchBlogs();
-                console.log(response);
-                setBlogs(response);
-            } catch (error) {
-            } finally {
-            }
-        };
-
-        getBlogs();
+        dispatch(fetchAllBlogs());
     }, []);
 
     return (
@@ -26,10 +18,11 @@ const Blogs = () => {
                 </div>
             </section>
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-5 mb-5">
-                <BlogSection blogs={blogs} />
+                {blogs ? <BlogSection blogs={blogs} /> : ''}
+
             </div>
         </>
-        
+
     )
 }
 

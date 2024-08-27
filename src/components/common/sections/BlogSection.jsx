@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { faker } from "@faker-js/faker";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import BlogFormModal from "../utils/BlogFormModal";
 import ConfirmModal from "../utils/ConfirmModal";
 
 const BlogSection = ({ blogs }) => {
-    const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [currentBlog, setCurrentBlog] = useState(null);
